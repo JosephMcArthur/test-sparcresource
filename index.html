@@ -59,12 +59,12 @@ It's July 4, 1776, and you're tired of higher taxes even though you get a sweet 
       history.pushState({}, "", link.href);
       history.back();
       intro.style.display = "none";
-      if ($("div :visible").length === 0) {
-          intro.style.display = "block";
-      } else {
-        }
     });
   });
+    window.onpopstate = function() {      
+      if ($("div :visible").length === 0) {
+          intro.style.display = "block";
+      }}
   </script>
   </body>
 </html>
