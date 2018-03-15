@@ -15,16 +15,16 @@
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 
 		<style>
-	    div:not(:target) {
+	    .content div:not(:target) {
 	      display: none;
 	    }
 
-	    div:target {
+	    .content div:target {
 	      display: block;
 	    }
 
 	    /* Make the div big, so we would jump, if the JS was still broken */
-	    div {
+	    .content div {
 	      height: 100vh;
 	    }
 	  </style>
@@ -36,7 +36,7 @@
 			<div id="wrapper">
 
 				<!-- Main -->
-					<div id="main">
+					<div id="main" style="display:block;">
 						<div class="inner">
 
 							<!-- Header -->
@@ -53,7 +53,7 @@
 
 							<!-- Content -->
 								<section>
-
+									<div class="content">
 									<div id="intro" style="display:block;">
 									<h2>Your journal’s primary goal: Serving your community</h2>
 									As an editor or editorial board member of a scholarly journal, you may be unaware of subscription patterns and pricing histories in the journal publishing industry. After all, your primary job is to focus on journal content -- to make sure that the latest and best research is published. Back when societies published most research, it was assumed that they were managing and pricing the journals with an eye toward reaching their intended audiences around the world. But the reality today has changed. Some publishers charge readers high prices for the journals they publish. That has led to broad scale subscription cancellations and narrower dissemination. More and more editorial boards have found that they must become involved in the business aspects of their commercially published journals if they are to be sure these essential publications remain accessible to their intended communities.
@@ -119,7 +119,8 @@
 									</ul>
 									If the editorial agreement(s) do not attempt to prevent editors from starting or participating in a new journal, then an editorial board might seek to launch an alternative journal. See “Launching an Alternative Journal” section [LINK] for further guidance.
 
-									  </div>
+								</div>
+							</div>
 								</section>
 
 						</div>
