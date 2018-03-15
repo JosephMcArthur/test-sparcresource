@@ -13,6 +13,22 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+
+		<style>
+	    div:not(:target) {
+	      display: none;
+	    }
+
+	    div:target {
+	      display: block;
+	    }
+
+	    /* Make the div big, so we would jump, if the JS was still broken */
+	    div {
+	      height: 100vh;
+	    }
+	  </style>
+
 	</head>
 	<body>
 
@@ -209,6 +225,23 @@
 			<script src="assets/js/util.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="assets/js/main.js"></script>
-
+			<script>
+		  // Stop href="#hashtarget" links jumping around the page
+		  var hashLinks = document.querySelectorAll("a[href^='#']");
+		  var intro = document.getElementById("intro");
+		  [].forEach.call(hashLinks, function (link) {
+		    link.addEventListener("click", function (event) {
+		      event.preventDefault();
+		      history.pushState({}, "", link.href);
+		      history.pushState({}, "", link.href);
+		      history.back();
+		      intro.style.display = "none";
+		    });
+		  });
+		    window.onpopstate = function() {
+		      if ($("div :visible").length === 0) {
+		          intro.style.display = "block";
+		      }};
+		  </script>
 	</body>
 </html>
